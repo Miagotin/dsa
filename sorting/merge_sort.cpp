@@ -30,6 +30,7 @@ void mergeSort(vector<int>& a) {
 }
 */
 
+/*
 void mergeSort(vector<int>& a, vector<int>& tmp, size_t l, size_t r) {
     if(r - l <= 1) return;
     size_t m = l + (r - l) / 2;
@@ -57,6 +58,7 @@ void mergeSort(vector<int>& a) {
     vector<int> tmp(a.size());
     mergeSort(a, tmp, 0, a.size());
 }
+*/
 
 int main() {
     
