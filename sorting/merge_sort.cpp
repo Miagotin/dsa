@@ -20,9 +20,8 @@ void mergeSort(vector<int>& a) {
     if(n <= 1) return;
     int k = n / 2;
 
-    vector<int> l(k), r(n - k);
-    for(int i = 0; i < k; ++i) l[i] = a[i];
-    for(int i = k; i < n; ++i) r[i-k] = a[i];
+    vector<int> l(begin(a), begin(a) + k);
+    vector<int> r(begin(a) + k, end(a));
 
     mergeSort(l);
     mergeSort(r);
