@@ -4,14 +4,22 @@ using namespace std;
 /*
 void merge(const vector<int>& l, const vector<int>& r, vector<int>& a) {
     int n = l.size(), m = r.size();
-    int i = 0, j = 0;
-    while(i < n || j < m) {
-        if(j == m || (i < n && (l[i] <= r[j]))) {
-            a[i+j] = l[i++];
+    int i = 0, j = 0, k = 0;
+
+    while(i < n && j < m) {
+        if(l[i] <= r[j]) {
+            a[k++] = l[i++];
         }
         else {
-            a[i+j] = r[j++];
+            a[k++] = r[j++];
         }
+    }
+
+    while(i < n) {
+        a[k++] = l[i++];
+    }
+    while(j < m) {
+        a[k++] = r[j++];
     }
 }
 
