@@ -45,17 +45,22 @@ void mergeSort(vector<int>& a, vector<int>& tmp, size_t l, size_t r) {
     mergeSort(a, tmp, l, m);
     mergeSort(a, tmp, m, r);
 
-    size_t ll = l, rr = m, k = l;
+    size_t i = l, j = m, k = l;
 
-    while(ll < m || rr < r) {
-        if(rr == r || (ll < m && (a[ll] <= a[rr]))) {
-            tmp[k] = a[ll];
-            k++, ll++;
+    while(i < m && j < r) {
+        if(a[i] <= a[j]) {
+            tmp[k++] = a[i++];
         }
         else {
-            tmp[k] = a[rr];
-            k++, rr++;
+            tmp[k++] = a[j++];
         }
+    }
+
+    while(i < m) {
+        tmp[k++] = a[i++];
+    }
+    while(j < r) {
+        tmp[k++] = a[j++];
     }
 
     copy(begin(tmp) + l, begin(tmp) + r, begin(a) + l);
