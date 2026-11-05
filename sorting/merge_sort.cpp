@@ -14,20 +14,11 @@ void merge(const vi& l, const vi& r, vi& a) {
     int i = 0, j = 0, k = 0;
 
     while(i < n && j < m) {
-        if(l[i] <= r[j]) {
-            a[k++] = l[i++];
-        }
-        else {
-            a[k++] = r[j++];
-        }
+        if(l[i] <= r[j]) a[k++] = l[i++];
+        else a[k++] = r[j++];
     }
-
-    while(i < n) {
-        a[k++] = l[i++];
-    }
-    while(j < m) {
-        a[k++] = r[j++];
-    }
+    while(i < n) a[k++] = l[i++];
+    while(j < m) a[k++] = r[j++];
 }
 
 void mergeSort(vi& a) {
@@ -62,20 +53,11 @@ void mergeSort(vi& a, vi& tmp, size_t l, size_t r) {
     size_t i = l, j = m, k = l;
 
     while(i < m && j < r) {
-        if(a[i] <= a[j]) {
-            tmp[k++] = a[i++];
-        }
-        else {
-            tmp[k++] = a[j++];
-        }
+        if(a[i] <= a[j]) tmp[k++] = a[i++];
+        else tmp[k++] = a[j++];
     }
-
-    while(i < m) {
-        tmp[k++] = a[i++];
-    }
-    while(j < r) {
-        tmp[k++] = a[j++];
-    }
+    while(i < m) tmp[k++] = a[i++];
+    while(j < r) tmp[k++] = a[j++];
 
     copy(begin(tmp) + l, begin(tmp) + r, begin(a) + l);
 }
@@ -105,20 +87,11 @@ void mergeSort(vi& tmp, vi& a, size_t l, size_t r) {
     size_t i = l, j = m, k = l;
 
     while(i < m && j < r) {
-        if(tmp[i] <= tmp[j]) {
-            a[k++] = tmp[i++];
-        }
-        else {
-            a[k++] = tmp[j++];
-        }
+        if(tmp[i] <= tmp[j]) a[k++] = tmp[i++];
+        else a[k++] = tmp[j++];
     }
-
-    while(i < m) {
-        a[k++] = tmp[i++];
-    }
-    while(j < r) {
-        a[k++] = tmp[j++];
-    }
+    while(i < m) a[k++] = tmp[i++];
+    while(j < r) a[k++] = tmp[j++];
 }
 
 void mergeSort(vi& a) {
