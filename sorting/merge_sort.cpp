@@ -42,6 +42,7 @@ void mergeSort(vi& a) {
 }
 */
 
+
 /*
 //APPROACH 2: Recursive Merge Sort (single temporary array for all recursive calls)
 //O(nlogn) Time, O(n) Space, fewer allocations
@@ -118,7 +119,3 @@ void mergeSort(vi& a) {
     mergeSort(tmp, a, 0, a.size());
 }
 */
-
-int main() {
-    
-}
