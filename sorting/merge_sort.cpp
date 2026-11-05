@@ -1,12 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
+using vi = vector<int>;
 
 /*
 //APPROACH 1: Recursive Merge Sort (creating two subarrays on each recursive call)
 //O(nlogn) Time, O(n) Space
 
 //Merges two sorted arrays into one sorted array
-void merge(const vector<int>& l, const vector<int>& r, vector<int>& a) {
+void merge(const vi& l, const vi& r, vi& a) {
     int n = l.size(), m = r.size();
     int i = 0, j = 0, k = 0;
 
@@ -27,13 +28,13 @@ void merge(const vector<int>& l, const vector<int>& r, vector<int>& a) {
     }
 }
 
-void mergeSort(vector<int>& a) {
+void mergeSort(vi& a) {
     int n = a.size();
     if(n <= 1) return;
     int k = n / 2;
 
-    vector<int> l(begin(a), begin(a) + k);
-    vector<int> r(begin(a) + k, end(a));
+    vi l(begin(a), begin(a) + k);
+    vi r(begin(a) + k, end(a));
 
     mergeSort(l);
     mergeSort(r);
@@ -45,7 +46,7 @@ void mergeSort(vector<int>& a) {
 //APPROACH 2: Recursive Merge Sort (single temporary array for all recursive calls)
 //O(nlogn) Time, O(n) Space, fewer allocations
 
-void mergeSort(vector<int>& a, vector<int>& tmp, size_t l, size_t r) {
+void mergeSort(vi& a, vi& tmp, size_t l, size_t r) {
     if(r - l <= 1) return;
     size_t m = l + (r - l) / 2;
 
@@ -73,9 +74,9 @@ void mergeSort(vector<int>& a, vector<int>& tmp, size_t l, size_t r) {
     copy(begin(tmp) + l, begin(tmp) + r, begin(a) + l);
 }
 
-void mergeSort(vector<int>& a) {
+void mergeSort(vi& a) {
     if(a.size() <= 1) return;
-    vector<int> tmp(a.size());
+    vi tmp(a.size());
     mergeSort(a, tmp, 0, a.size());
 }
 */
@@ -85,7 +86,7 @@ void mergeSort(vector<int>& a) {
 //APPROACH 3: Ping-Pong Merge Sort (alternating buffers avoiding copying)
 //O(nlogn) Time, O(n) Space, fewer allocations, less copying
 
-void mergeSort(vector<int>& tmp, vector<int>& a, size_t l, size_t r) {
+void mergeSort(vi& tmp, vi& a, size_t l, size_t r) {
     if(r - l <= 1) return;
     size_t m = l + (r - l) / 2;
 
@@ -111,9 +112,9 @@ void mergeSort(vector<int>& tmp, vector<int>& a, size_t l, size_t r) {
     }
 }
 
-void mergeSort(vector<int>& a) {
+void mergeSort(vi& a) {
     if(a.size() <= 1) return;
-    vector<int> tmp = a;
+    vi tmp = a;
     mergeSort(tmp, a, 0, a.size());
 }
 */
