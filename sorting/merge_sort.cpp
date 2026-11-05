@@ -99,8 +99,8 @@ void mergeSort(vi& tmp, vi& a, size_t l, size_t r) {
     if(r - l <= 1) return;
     size_t m = l + (r - l) / 2;
 
-    mergeSort(a, tmp, l, m);
-    mergeSort(a, tmp, m, r);
+    mergeSort(tmp, a, l, m);
+    mergeSort(tmp, a, m, r);
 
     size_t i = l, j = m, k = l;
 
@@ -124,7 +124,7 @@ void mergeSort(vi& tmp, vi& a, size_t l, size_t r) {
 void mergeSort(vi& a) {
     if(a.size() <= 1) return;
     vi tmp = a;
-    mergeSort(tmp, a, 0, a.size());
+    mergeSort(a, tmp, 0, a.size());
 }
 */
 
